@@ -82,14 +82,13 @@ public class App {
         }
 
         Automaton automaton = new Automaton(initialState, states, transitions);
-        automaton.printConfiguration();  
+        automaton.printConfiguration();
 
-        System.out.println("Digite o número de cadeias de entrada:");
-        int numInputs = scanner.nextInt();
+        System.out.println("Digite as cadeias de entrada, uma por vez. Para encerrar o programa, digite 'SAIR':");
+        String inputString = "";
 
-        for (int i = 0; i < numInputs; i++) {
-            System.out.println("Digite a cadeia de entrada:");
-            String inputString = scanner.next();
+        while (!inputString.equalsIgnoreCase("SAIR")) {
+            inputString = scanner.next();
 
             if (automaton.processInputString(inputString)) {
                 System.out.print("\033[32mACEITA\033[0m");
@@ -102,11 +101,11 @@ public class App {
         scanner.close();
     }
 
-    private static String availableStatesAsString(List<State> states, List<State> finalStates) {  
-        return states.stream()  
-                .filter(state -> !finalStates.contains(state))  
-                .map(State::getName)  
-                .collect(Collectors.toList())  
-                .toString();  
-    }  
+    private static String availableStatesAsString(List<State> states, List<State> finalStates) {
+        return states.stream()
+                .filter(state -> !finalStates.contains(state))
+                .map(State::getName)
+                .collect(Collectors.toList())
+                .toString();
+    }
 }
