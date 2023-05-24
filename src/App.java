@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class App {
     public static void main(String[] args) {
@@ -100,14 +101,11 @@ public class App {
         scanner.close();
     }
 
-    private static String availableStatesAsString(List<State> states, List<State> finalStates) {
-        List<String> availableStateNames = new ArrayList<>();
-        for (State state : states) {
-            if (!finalStates.contains(state)) {
-                availableStateNames.add(state.getName());
-            }
-        }
-        return availableStateNames.toString();
-    }
-
+    private static String availableStatesAsString(List<State> states, List<State> finalStates) {  
+        return states.stream()  
+                .filter(state -> !finalStates.contains(state))  
+                .map(State::getName)  
+                .collect(Collectors.toList())  
+                .toString();  
+    }  
 }
