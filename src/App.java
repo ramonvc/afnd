@@ -82,6 +82,7 @@ public class App {
         }
 
         Automaton automaton = new Automaton(initialState, states, transitions);
+        automaton.printConfiguration();  
 
         System.out.println("Digite o número de cadeias de entrada:");
         int numInputs = scanner.nextInt();

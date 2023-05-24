@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Automaton {
     private State initialState;
     private List<Transition> transitions;
+    private List<State> states;
 
     /**
      * Constructs an automaton object.
@@ -14,6 +16,7 @@ public class Automaton {
      */
     public Automaton(State initialState, List<State> states, List<Transition> transitions) {
         this.initialState = initialState;
+        this.states = states;
         this.transitions = transitions;
     }
 
@@ -75,5 +78,24 @@ public class Automaton {
         }
 
         return possibleTransitions;
+    }
+
+    /**
+     * Prints the configuration of the automaton, including states, initial state,
+     * final states, and transitions.
+     */
+    public void printConfiguration() {
+        System.out.println("\n\n");
+        System.out.println("Estados: {" + states.stream().map(State::getName).collect(Collectors.joining(", ")) + "}");
+        System.out.println("Estado Inicial: {" + initialState.getName() + "}");
+        System.out.println("Estados Finais: {"
+                + states.stream().filter(State::isFinal).map(State::getName).collect(Collectors.joining(", ")) + "}");
+        System.out.println("Transições:");
+        for (Transition transition : transitions) {
+            String symbol = transition.getSymbol().isEmpty() ? "&" : transition.getSymbol();
+            System.out.println("(" + transition.getSourceState().getName() + ") -> ("
+                    + transition.getDestinationState().getName() + ") (" + symbol + ")");
+        }
+        System.out.println("\n");
     }
 }
