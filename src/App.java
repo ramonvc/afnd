@@ -55,12 +55,12 @@ public class App {
         List<Transition> transitions = new ArrayList<>();
         for (int i = 0; i < numTransitions; i++) {
             System.out.println(
-                    "Digite a transição. Formato: <estado origem> <estado destino> <simbolo> (use '-' para epsilon)");
+                    "Digite a transição. Formato: <estado origem> <estado destino> <simbolo> (use '&' para Épsilon)");
             String source = scanner.next();
             String destination = scanner.next();
             String symbol = scanner.next();
 
-            if (symbol.equals("-")) {
+            if (symbol.equals("&")) {
                 symbol = ""; // representa uma transição ε
             }
 
