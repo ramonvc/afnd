@@ -23,15 +23,6 @@ public class State {
     }
 
     /**
-     * Sets the name of the state.
-     * 
-     * @param name The new name of the state.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * Checks if the state is a final state.
      * 
      * @return true if the state is a final state, false otherwise.
