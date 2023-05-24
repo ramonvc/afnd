@@ -18,12 +18,23 @@ public class App {
 
         System.out.println("Digite o número de estados finais:");
         int numFinalStates = scanner.nextInt();
-        System.out.println("Digite os nomes dos estados finais:");
+        List<State> finalStates = new ArrayList<>();
+
         for (int i = 0; i < numFinalStates; i++) {
+            String availableStates = availableStatesAsString(states, finalStates);
+            System.out.println("Digite o nome do estado final " + (i + 1) + " (" + (i + 1) + "/" + numFinalStates
+                    + "). Estados disponíveis: " + availableStates);
             String finalStateName = scanner.next();
+
+            while (!availableStates.contains(finalStateName)) {
+                System.out.println("Estado inválido. Digite novamente:");
+                finalStateName = scanner.next();
+            }
+
             for (State state : states) {
                 if (state.getName().equals(finalStateName)) {
                     state.setFinal(true);
+                    finalStates.add(state);
                     break;
                 }
             }
@@ -88,4 +99,15 @@ public class App {
 
         scanner.close();
     }
+
+    private static String availableStatesAsString(List<State> states, List<State> finalStates) {
+        List<String> availableStateNames = new ArrayList<>();
+        for (State state : states) {
+            if (!finalStates.contains(state)) {
+                availableStateNames.add(state.getName());
+            }
+        }
+        return availableStateNames.toString();
+    }
+
 }
