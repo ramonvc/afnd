@@ -7,6 +7,8 @@ Este projeto é um simulador de AFND que permite aos usuários definir estados, 
 1. Compile e execute o arquivo `App.java`.  
 2. Siga as instruções exibidas no terminal para inserir estados, estados finais, estado inicial e transições.  
 3. Insira as cadeias de entrada para verificar se são aceitas ou recusadas pelo autômato.  
+
+<img src="https://github.com/ramonvc/afnd/assets/13617054/e7ae078a-abc2-4702-9978-bf0daa25ee2e" alt="afnd" width="480px">
   
 ## 📚 Exemplos de testes manuais 📚  
   
