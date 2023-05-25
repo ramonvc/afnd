@@ -8,8 +8,8 @@ public class App {
         Scanner scanner = new Scanner(System.in);  
   
         List<State> states = getStates(scanner);  
-        setFinalStates(scanner, states);  
         State initialState = getInitialState(scanner, states);  
+        setFinalStates(scanner, states);  
         List<Transition> transitions = getTransitions(scanner, states);  
   
         Automaton automaton = new Automaton(initialState, states, transitions);  
@@ -27,7 +27,7 @@ public class App {
      * @return The list of states.  
      */  
     private static List<State> getStates(Scanner scanner) {  
-        System.out.println("Digite o número de estados:");  
+        System.out.println("Digite a quantidade de estados:");  
         int numStates = scanner.nextInt();  
         List<State> states = new ArrayList<>();  
   
@@ -47,7 +47,7 @@ public class App {
      * @param states  The list of states.  
      */  
     private static void setFinalStates(Scanner scanner, List<State> states) {  
-        System.out.println("Digite o número de estados finais:");  
+        System.out.println("Digite a quantidade de estados finais:");  
         int numFinalStates = scanner.nextInt();  
   
         for (int i = 0; i < numFinalStates; i++) {  
@@ -99,7 +99,7 @@ public class App {
      * @return The list of transitions.  
      */  
     private static List<Transition> getTransitions(Scanner scanner, List<State> states) {  
-        System.out.println("Digite o número de transições:");  
+        System.out.println("Digite a quantidade de transições:");  
         int numTransitions = scanner.nextInt();  
         List<Transition> transitions = new ArrayList<>();  
         for (int i = 0; i < numTransitions; i++) {  
