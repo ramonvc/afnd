@@ -1,4 +1,4 @@
-# 🤖 Simulador de Autômatos Finitos Não Determinísticos (AFND) 🤖  
+# Simulador de Autômatos Finitos Não Determinísticos (AFND) 🤖  
   
 Este projeto é um simulador de AFND que permite aos usuários definir estados, estados finais, estado inicial, transições e fornecer cadeias de entrada para verificar se são aceitas ou não pelo autômato. O simulador foi desenvolvido em Java.  
   
